@@ -9,3 +9,4 @@ function checkApiKey() {
     }
     return localStorage.getItem("apiKey");
 }
+
