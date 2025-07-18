@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Contact</title>
 </head>
-<body>
+<body onload="getcontacts()">
     <div id="avatarImage"></div>
     <form id="editForm">
         <label for="firstname">First name</label>
@@ -28,13 +28,30 @@
 
     <script src="config.js"></script>
     <script>
+        document.getElementById("homeLink").addEventListener('click',homeLink);
+
         let id = getId();
-        
+
         function getId(){
             let url = window.location.href;
             let pos = url.search("=");
             let id = url.slice(pos + 1);
             return id;
+        }
+
+        function getcontacts(){
+            fetch(rootPath + 'controller/get-contacts/?id=' +id)
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(data){
+                //dispakkkk
+                console.log(data);
+            })
+        }
+
+        function homeLink(){
+            window.open("index.html","_self");
         }
 
 
