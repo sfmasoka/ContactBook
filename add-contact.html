@@ -25,7 +25,15 @@
 
     <script src="config.js"></script>
     <script>
+       
+       function submitForm(e){
+        e.preventDafault();
+
+        const form = new FormData(document.querySelector('#editForm'));
+        form.append('apiKey',apiKey);
+
         
+    } 
     </script>
 </body>
 </html>
