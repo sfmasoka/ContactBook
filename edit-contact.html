@@ -28,6 +28,14 @@
 
     <script src="config.js"></script>
     <script>
+        let id = getId();
+        
+        function getId(){
+            let url = window.location.href;
+            let pos = url.search("=");
+            let id = url.slice(pos + 1);
+            return id;
+        }
 
 
     </script>
